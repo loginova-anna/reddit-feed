@@ -1,0 +1,11 @@
+<p>
+  feed works!
+</p>
+<div class="feed">
+  <div class="feed__list" >
+      all posts
+    <div class="feed__post" *ngFor="let post of feed.posts">
+      <app-preview [post]="post"></app-preview>
+    </div>
+  </div>
+</div>

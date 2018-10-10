@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "reddit-feed"
+  "defaultProject": "reddit-feed",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
