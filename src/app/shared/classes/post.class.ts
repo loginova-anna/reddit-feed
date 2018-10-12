@@ -2,6 +2,7 @@ import { Comment } from './comment.class';
 export class Post {
   constructor(
     public id: string,
+    public name: string,
     public author: string,
     public created: Date,
     public thumbnail: string,

@@ -1,4 +1,4 @@
-import { Feed } from './shared/classes/feed.class';
+import { Router } from '@angular/router';
 import { ApiService } from './core/api.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,11 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'reddit-feed';
   // feed: Feed;
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
-    this.api.getRedditList().subscribe(res => console.log(res));
+    // this.api.getRedditList().subscribe(res => console.log(res));
     // this.api.getSubreddit('', 0).subscribe(res => {console.log(res); this.feed = res; });
+  }
+
+  navigateToMain() {
+    this.router.navigateByUrl('/');
   }
 
 }

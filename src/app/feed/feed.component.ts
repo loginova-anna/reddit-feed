@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../core/api.service';
 import { Feed } from '../shared/classes/feed.class';
 import { Component, OnInit, Input } from '@angular/core';
@@ -14,7 +14,7 @@ export class FeedComponent implements OnInit {
   after = null;
   limit = 10;
   name = '';
-  constructor(private api: ApiService, private route: ActivatedRoute) {
+  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(res => {
       this.before = res.before || this.before;
       this.after = res.after || this.after;
@@ -25,11 +25,11 @@ export class FeedComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.api.getSubreddit('', 0).subscribe(res => {console.log('feed', res); this.feed = res; });
   }
 
   getFeed() {
-    this.api.getSubreddit(this.name, this.limit, this.before, this.after).subscribe(res => { this.feed = res; });
+    this.api.getSubreddit(this.name, this.limit, this.before, this.after)
+      .subscribe(res => this.feed = res);
   }
 
   navigateToPage(type) {
@@ -41,15 +41,24 @@ export class FeedComponent implements OnInit {
   }
 
   goToPrevious() {
-    if (!this.feed.before) {
-      return;
-    }
-    console.log(this.feed.before);
+    this.after = null;
+    const params = {
+      name: this.name,
+      before: this.feed.posts[0].name,
+      limit: this.limit
+    };
+    this.router.navigate(['/feed'], {queryParams: params});
 
   }
 
   goToNext() {
-    console.log(this.feed.after);
+    this.before = null;
+    const params = {
+      name: this.name,
+      after: this.feed.posts[this.feed.posts.length - 1].name,
+      limit: this.limit
+    };
+    this.router.navigate(['/feed'], {queryParams: params});
   }
 
 }

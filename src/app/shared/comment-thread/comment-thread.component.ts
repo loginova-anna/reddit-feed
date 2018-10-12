@@ -13,7 +13,6 @@ export class CommentThreadComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.thread);
   }
 
   toggleThread() {

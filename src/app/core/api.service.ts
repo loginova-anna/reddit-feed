@@ -26,6 +26,7 @@ export class ApiService {
     name = name || 'sweden';
     const params = (limit ? `limit=${limit}&` : '') + (before ? `before=${before}&` : '') + (after ? `after=${after}` : '');
     const url = subRedditUrl + name + '.json' + (params ? '?' + params : '');
+    console.log(url);
     return this.http
       .get(url)
       .pipe(
@@ -55,6 +56,7 @@ export class ApiService {
     let newComment;
 
     raw.forEach(el => {
+      if (!el.data.author) { return; }
       newComment = new Comment(
         el.data.id,
         el.data.body,
@@ -86,9 +88,9 @@ export class ApiService {
       width: previewSource.width,
       height: previewSource.height
     } : null;
-    console.log(preview);
     return new Post(
       raw.data.id,
+      raw.data.name,
       raw.data.author,
       postDate,
       thumbnail,

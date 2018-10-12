@@ -1,0 +1,48 @@
+@import 'src/variables';
+
+.post {
+  background-color: $cWhite;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.post__body {
+  margin-bottom: 10px;
+}
+
+.post__score {
+
+}
+
+.post__title {
+  padding-bottom: 20px;
+  font-size: $sFontTitle;
+}
+
+.post__text {
+
+}
+
+.post__preview {
+  max-width: 100%;
+}
+
+.post__footer {
+  border-top: 1px solid $cLightFont;
+  background-color: $cLight;
+  padding: 10px;
+  border-radius: 0 0 2px 2px;
+}
+
+.post__author {
+
+}
+
+.post__date {
+
+}
+
+.post__comments {
+  background-color: $cWhite;
+  padding: 10px 0 10px 10px;
+}

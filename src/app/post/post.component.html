@@ -2,7 +2,7 @@
   <div class="post__body">
     <h2 class="post__title">{{post.title}}</h2>
     <p class="post__text" *ngIf="post.text">{{post.text}}</p>
-    <img class="post__text" [attr.src]="post.preview.url" *ngIf="post.preview">
+    <img class="post__preview" [attr.src]="post.preview.url" *ngIf="post.preview">
   </div>
   <div class="post__footer">
     {{post.author}}
