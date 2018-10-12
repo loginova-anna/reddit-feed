@@ -1,0 +1,10 @@
+<div class="comment">
+  <div class="comment__info">
+    <p class="comment__score">{{'+' + comment.score}}</p>
+    <p class="comment__author"
+      [ngClass]="{'comment__author_ts': comment.author === ts}"
+    >{{comment.author}}</p>
+    <p class="comment__date">{{comment.created | date:'dd.MM.yyyy'}}</p>
+  </div>
+  <p class="comment__text">{{comment.text}}</p>
+</div>

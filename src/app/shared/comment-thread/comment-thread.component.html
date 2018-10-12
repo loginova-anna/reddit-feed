@@ -1,0 +1,17 @@
+<div class="thread">
+  <div
+    class="thread__toggler"
+    [ngClass]="{'thread__toggler_off': !threadOn}"
+    (click)="toggleThread()"
+  >
+  </div>
+  <div class="thread__placeholder" *ngIf="!threadOn">Show comments</div>
+  <div class="thread__body" *ngIf="threadOn">
+      <div class="thread__comment">
+          <app-comment [comment]="thread" [ts]="ts"></app-comment>
+      </div>
+      <div class="thread__replies" *ngIf="thread.replies && thread.replies.length">
+          <app-comment-thread *ngFor="let reply of thread.replies" [thread]="reply" [ts]="ts"></app-comment-thread>
+      </div>
+  </div>
+</div>

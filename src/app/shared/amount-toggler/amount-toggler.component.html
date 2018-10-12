@@ -1,3 +1,15 @@
-<p>
-  amount-toggler works!
-</p>
+<div class="toggler">
+  <div class="toggler__options">
+      <div *ngFor="let option of options" (click)="setOption(option)" class="toggler__option">
+        {{option}}
+      </div>
+  </div>
+  <div
+    class="toggler__slider"
+    ngClass="{
+      'toggler__slider_position_left': selected === options[0],
+      'toggler__slider_position_center': selected === options[1],
+      'toggler__slider_position_right': selected === options[2]
+    }"
+  ></div>
+</div>

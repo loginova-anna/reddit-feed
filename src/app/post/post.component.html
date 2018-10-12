@@ -1,0 +1,13 @@
+<div class="post" *ngIf="post">
+  <div class="post__body">
+    <h2 class="post__title">{{post.title}}</h2>
+    <p class="post__text" *ngIf="post.text">{{post.text}}</p>
+    <img class="post__text" [attr.src]="post.preview.url" *ngIf="post.preview">
+  </div>
+  <div class="post__footer">
+    {{post.author}}
+  </div>
+  <div class="post__comments">
+    <app-comment-thread *ngFor="let thread of post.comments" [thread]="thread" [ts]="post.author"></app-comment-thread>
+  </div>
+</div>

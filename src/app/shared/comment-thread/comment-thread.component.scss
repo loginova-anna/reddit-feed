@@ -1,0 +1,58 @@
+@import 'src/variables';
+
+.thread {
+  // border-left: 1px solid $cDark;
+  position: relative;
+  background-color: $cWhite;
+  padding-left: 20px;
+}
+
+.thread__toggler {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 30px;
+  bottom: 5px;
+  left: 0;
+  cursor: pointer;
+  background-color: $cLight;
+  transition: background-color .3s;
+}
+
+.thread__toggler::before {
+  position: absolute;
+  content: '-';
+  display: block;
+  color: $cLight;
+  left: -6px;
+  top: -20px;
+  width: 11px;
+  text-align: center;
+  font-size: $sFontLarge;
+  line-height: 8px;
+  height: 10px;
+  border: 2px solid $cLight;
+  border-radius: 2px;
+  transition: color .3s, border-color .3s;
+}
+
+.thread__toggler:hover {
+  background-color: $cMedium;
+  &::before {
+    border-color: $cMedium;
+    color: $cMedium;
+  }
+}
+
+.thread__toggler_off::before {
+  content: '+';
+}
+
+.thread__comment {
+
+}
+
+.thread__replies {
+  padding-left: 10px;
+
+}

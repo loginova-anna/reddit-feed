@@ -1,0 +1,15 @@
+@import 'src/variables';
+
+.feed {
+  background: $cLight;
+}
+
+.feed__list {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-top: 20px;
+}
+
+.feed__post {
+  margin-bottom: 20px;
+}

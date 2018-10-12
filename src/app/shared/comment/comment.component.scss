@@ -1,0 +1,35 @@
+@import 'src/variables';
+
+.comment {
+  padding: 10px 0;
+}
+
+.comment__author {
+  color: $cMedium;
+  font-size: $sFontSmall;
+  font-weight: 700;
+  display: inline-block;
+  padding-left: 8px;
+}
+
+.comment__author_ts {
+  color: $cAccent;
+}
+
+.comment__text {
+
+}
+
+.comment__info {
+  font-size: $sFontSmall;
+  padding-bottom: 8px;
+}
+
+.comment__score {
+  display: inline-block;
+}
+
+.comment__date {
+  display: inline-block;
+  padding-left: 8px;
+}

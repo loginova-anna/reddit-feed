@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'reddit-feed';
-  feed: Feed;
+  // feed: Feed;
   constructor(private api: ApiService) {}
 
   ngOnInit() {
     this.api.getRedditList().subscribe(res => console.log(res));
-    this.api.getSubreddit('', 0).subscribe(res => {console.log(res); this.feed = res; });
+    // this.api.getSubreddit('', 0).subscribe(res => {console.log(res); this.feed = res; });
   }
 
 }

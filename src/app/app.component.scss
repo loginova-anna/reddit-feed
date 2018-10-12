@@ -1,0 +1,36 @@
+@import 'src/variables';
+
+.reddit-feed {
+}
+
+.reddit-feed__title {
+  font-size: $sFontHeading;
+  color: $cDark;
+}
+
+.reddit-feed__header {
+  padding: 20px 0 60px;
+  position: relative;
+  background: linear-gradient(to bottom, #ffffff 49%,#ffffff 49%,#5c9ead 49%,#5c9ead 50%,#5c9ead 51%,#5c9ead 64%,#5c9ead 70%,#5c9ead 70%,#21434f 70%,#21434f 70%,#21434f 72%);
+}
+
+.reddit-feed__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reddit-feed__body {
+  background: $cLight;
+  padding: 20px 0 50px;
+}
+
+.reddit-feed__footer {
+  background-color: $cDark;
+  color: $cLight;
+  padding: 30px 0;
+}
+
+
+
+
+

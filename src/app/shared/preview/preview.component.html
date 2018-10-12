@@ -1,18 +1,23 @@
 <div class="preview">
-  <div class="preview__score"></div>
-  <div class="preview__main">
-    <p class="preview__title">{{post.title}}</p>
-    <a class="preview__link" [attr.href]="post.permalink">More...</a>
-    <img class="preview__thumbnail" [attr.src]="post.thumbnail">
-    <div class="preview__footer">
-      <div class="preview__comments">
-        <div class="preview__comment-icon"></div>
-        <p class="preview__comment-number">{{post.numComments}}</p>
+  <div class="preview__score">{{post.score}}</div>
+  <div class="preview__body">
+    <div class="preview__content clearfix">
+        <p class="preview__title" (click)="navigateToPost()">{{post.title}}</p>
+        <a class="preview__link clearfix" [attr.href]="'https://www.reddit.com' + post.permalink">Read on Reddit</a>
+        <img *ngIf="post.thumbnail" class="preview__thumbnail" [attr.src]="post.thumbnail">
+    </div>
+    <div class="preview__footer clearfix">
+      <div class="preview__comments" (click)="navigateToPost()">
+        <svg class="preview__comment-icon" viewBox="0 0 1000 1000">
+          <use xlink:href="src/assets/icons/comments-icon.svg#comments"></use>
+        </svg>
+        <span class="preview__comment-number">{{post.numComments}}</span>
       </div>
       <div class="preview__info">
         <p class="preview__author">{{post.author}}</p>
-        <p class="preview__date">{{post.created}}</p>
+        <p class="preview__date">{{post.created | date: 'dd.MM.yyyy'}}</p>
       </div>
     </div>
   </div>
 </div>
+<app-comment-thread *ngFor="let thread of threads" [thread]="thread" [ts]="'Coffeh'"></app-comment-thread>

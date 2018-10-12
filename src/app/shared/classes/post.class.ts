@@ -1,3 +1,4 @@
+import { Comment } from './comment.class';
 export class Post {
   constructor(
     public id: string,
@@ -7,6 +8,9 @@ export class Post {
     public numComments: number,
     public permalink: string,
     public title: string,
-    public selfText: string
+    public text: string,
+    public score: number,
+    public preview?: any,
+    public comments?: Comment[]
   ) {}
 }

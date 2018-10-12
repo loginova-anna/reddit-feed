@@ -1,1 +1,84 @@
+@import 'src/variables';
 
+.preview {
+  background: $cWhite;
+  border-radius: 2px;
+  position: relative;
+  padding: 20px;
+  padding-left: 75px;
+}
+
+.preview__score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: $cLightFont;
+  font-size: $sFontLarge;
+}
+
+.preview__body {
+
+}
+
+.preview__content {
+  padding-bottom: 20px;
+}
+
+.preview__title {
+  max-width: 800px;
+  float: left;
+  font-size: $sFontTitle;
+  cursor: pointer;
+}
+
+.preview__link {
+  float: left;
+  color: $cLightFont;
+}
+
+.preview__thumbnail {
+  float: right;
+}
+
+.preview__footer {
+  border-top: 1px solid $cLightFont;
+  padding-top: 20px;
+}
+
+.preview__comments {
+  float: left;
+  cursor: pointer;
+  color: $cLightFont;
+  transition: color .3s;
+  &:hover {
+    color: $cDark;
+  }
+}
+
+.preview__comment-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  color: inherit;
+}
+
+.preview__comment-number {
+  color: inherit;
+}
+
+.preview__info {
+  float: right;
+}
+
+.preview__author {
+  text-align: right;
+  font-weight: 700;
+  color: $cMedium;
+}
+
+.preview__date {
+  text-align: right;
+  color: $cLightFont;
+}

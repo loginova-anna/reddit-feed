@@ -1,6 +1,21 @@
 <div class="reddit-feed">
-  <h1 class="reddit-feed__title">Pseudo Reddit</h1>
+  <header class="reddit-feed__header">
+    <div class="reddit-feed__container">
+        <h1 class="reddit-feed__title">Pseudo Reddit</h1>
+    </div>
+  </header>
+  <section class="reddit-feed__body">
+    <div class="reddit-feed__container">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+  <footer class="reddit-feed__footer">
+    <div class="reddit-feed__container">
+      footer bla bla bla
+    </div>
+  </footer>
+
 </div>
 
-<app-feed [feed]="feed" *ngIf="feed && feed.posts && feed.posts.length"></app-feed>
+
 
