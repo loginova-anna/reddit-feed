@@ -7,49 +7,52 @@
   padding-left: 20px;
 }
 
+.thread__body_off {
+  height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
 .thread__toggler {
   position: absolute;
   width: 2px;
-  height: 100%;
   top: 30px;
   bottom: 5px;
   left: 0;
+  color: #bcbcbc;
   cursor: pointer;
   background-color: $cLight;
-  transition: background-color .3s;
+  transition: background-color .3s, color .3s;
 }
 
-.thread__toggler::before {
+.thread__toggler-btn {
+  width: 14px;
+  height: 14px;
   position: absolute;
-  content: '-';
-  display: block;
-  color: $cLight;
-  left: -6px;
+  color: inherit;
   top: -20px;
-  width: 11px;
-  text-align: center;
-  font-size: $sFontLarge;
-  line-height: 8px;
-  height: 10px;
-  border: 2px solid $cLight;
-  border-radius: 2px;
-  transition: color .3s, border-color .3s;
+  left: -6px;
 }
 
 .thread__toggler:hover {
   background-color: $cMedium;
-  &::before {
-    border-color: $cMedium;
-    color: $cMedium;
-  }
+  color: $cMedium;
 }
 
-.thread__toggler_off::before {
-  content: '+';
+.thread__toggler_off {
+  background: transparent;
+  &:hover {
+    background: transparent;
+  }
 }
 
 .thread__comment {
 
+}
+
+.thread__placeholder {
+  padding: 10px 0;
+  color: $cLightFont;
 }
 
 .thread__replies {

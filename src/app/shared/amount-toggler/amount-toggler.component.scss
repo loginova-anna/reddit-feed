@@ -1,13 +1,36 @@
+@import 'src/variables';
+
 .toggler {
 
 }
 
-.toggler__options {
+.toggler__text {
+  display: inline-block;
+  padding-right: 10px;
+}
 
+.toggler__options {
+  display: inline-block;
 }
 
 .toggler__option {
+  padding: 3px 6px;
+  font-size: $sFontParagraph;
+  color: $cLightFont;
+  background-color: $cMedium;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-right: 2px;
+  display: inline-block;
+  transition: background-color .3s, color .3s;
+  &:hover {
+    background-color: $cAccent;
+    color: $cLight;
+  }
+}
 
+.toggler__option_active {
+  color: $cLight;
 }
 
 .toggler__slider {

@@ -4,8 +4,11 @@
     <p class="post__text" *ngIf="post.text">{{post.text}}</p>
     <img class="post__preview" [attr.src]="post.preview.url" *ngIf="post.preview">
   </div>
-  <div class="post__footer">
-    {{post.author}}
+  <div class="post__footer clearfix">
+    <p class="post__date">{{post.created | date: 'dd.MM.yyyy'}}</p>
+    <p class="post__author">{{post.author}}</p>
+    <p class="post__score">{{'+' + post.score}}</p>
+
   </div>
   <div class="post__comments">
     <app-comment-thread *ngFor="let thread of post.comments" [thread]="thread" [ts]="post.author"></app-comment-thread>

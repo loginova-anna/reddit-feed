@@ -1,10 +1,22 @@
 
 <div class="feed">
-  <app-navigation (navigate)="navigateToPage($event)"></app-navigation>
+  <div class="feed__controls clearfix" >
+    <div class="feed__nav">
+      <app-navigation (navigate)="navigateToPage($event)"></app-navigation>
+    </div>
+    <div class="feed__limit">
+      <app-amount-toggler [selected]="+limit" (change)="setLimit($event)"></app-amount-toggler>
+    </div>
+  </div>
+
   <div class="feed__list" *ngIf="feed && feed.posts && feed.posts.length">
     <div class="feed__post" *ngFor="let post of feed.posts">
       <app-preview [post]="post"></app-preview>
     </div>
   </div>
-  <app-navigation (navigate)="navigateToPage($event)"></app-navigation>
+  <div class="feed__controls clearfix" >
+    <div class="feed__nav">
+      <app-navigation (navigate)="navigateToPage($event)"></app-navigation>
+    </div>
+  </div>
 </div>

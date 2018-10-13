@@ -1,10 +1,12 @@
 <div class="preview">
   <div class="preview__score">{{post.score}}</div>
   <div class="preview__body">
-    <div class="preview__content clearfix">
-        <p class="preview__title" (click)="navigateToPost()">{{post.title}}</p>
-        <a class="preview__link clearfix" [attr.href]="'https://www.reddit.com' + post.permalink">Read on Reddit</a>
-        <img *ngIf="post.thumbnail" class="preview__thumbnail" [attr.src]="post.thumbnail">
+    <div class="preview__main clearfix">
+      <div class="preview__content">
+          <p class="preview__title" (click)="navigateToPost()">{{post.title}}</p>
+          <a class="preview__link clearfix" [attr.href]="'https://www.reddit.com' + post.permalink">Read on Reddit</a>
+      </div>
+      <img *ngIf="post.thumbnail" class="preview__thumbnail" [attr.src]="post.thumbnail">
     </div>
     <div class="preview__footer clearfix">
       <div class="preview__comments" (click)="navigateToPost()">

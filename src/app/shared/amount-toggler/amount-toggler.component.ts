@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-amount-toggler',
@@ -7,16 +7,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AmountTogglerComponent implements OnInit {
   options = [10, 25, 50];
-  selected = 10;
-  @Output() option = new EventEmitter<number>();
+  @Input() selected;
+  @Output() change = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit() {
+    console.log('selected', this.selected);
   }
 
   setOption(opt: number) {
     this.selected = opt;
-    this.option.emit(opt);
+    this.change.emit(opt);
   }
 
 }

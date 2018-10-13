@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {
-    // this.api.getRedditList().subscribe(res => console.log(res));
+    this.api.getRedditList().subscribe(res => console.log('list', res));
     // this.api.getSubreddit('', 0).subscribe(res => {console.log(res); this.feed = res; });
   }
 

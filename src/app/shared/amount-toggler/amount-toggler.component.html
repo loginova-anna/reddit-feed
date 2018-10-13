@@ -1,6 +1,12 @@
 <div class="toggler">
+  <p class="toggler__text">Display by </p>
   <div class="toggler__options">
-      <div *ngFor="let option of options" (click)="setOption(option)" class="toggler__option">
+      <div
+        *ngFor="let option of options"
+        (click)="setOption(option)"
+        class="toggler__option"
+        [ngClass]="{'toggler__option_active': selected === option}"
+      >
         {{option}}
       </div>
   </div>

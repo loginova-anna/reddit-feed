@@ -20,24 +20,28 @@
 
 }
 
-.preview__content {
+.preview__main {
   padding-bottom: 20px;
 }
 
-.preview__title {
-  max-width: 800px;
+.preview__content {
   float: left;
+  max-width: calc(100% - 150px);
+}
+
+.preview__title {
   font-size: $sFontTitle;
   cursor: pointer;
+  padding-bottom: 10px;
 }
 
 .preview__link {
-  float: left;
   color: $cLightFont;
 }
 
 .preview__thumbnail {
   float: right;
+  max-width: 145px;
 }
 
 .preview__footer {

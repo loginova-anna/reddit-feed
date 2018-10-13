@@ -20,7 +20,7 @@
 }
 
 .post__text {
-
+  padding-bottom: 20px;
 }
 
 .post__preview {
@@ -35,11 +35,21 @@
 }
 
 .post__author {
-
+  float: right;
+  color: $cMedium;
+  padding-right: 10px;
+  font-weight: 700;
+  padding-top: 3px;
 }
 
 .post__date {
+  padding-top: 3px;
+  float: right;
+}
 
+.post__score {
+  float: left;
+  font-size: $sFontLarge;
 }
 
 .post__comments {

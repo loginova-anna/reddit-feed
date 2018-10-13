@@ -61,4 +61,9 @@ export class FeedComponent implements OnInit {
     this.router.navigate(['/feed'], {queryParams: params});
   }
 
+  setLimit(l) {
+    // this.limit = l;
+    this.router.navigate(['/feed'], {queryParams: {limit: l}});
+  }
+
 }
