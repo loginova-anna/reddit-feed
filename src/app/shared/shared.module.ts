@@ -1,3 +1,4 @@
+import { OptionsListComponent } from './options-list/options-list.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CommentThreadComponent } from './comment-thread/comment-thread.component';
 import { CommentComponent } from './comment/comment.component';
@@ -16,14 +17,16 @@ import { PreviewComponent } from './preview/preview.component';
     AmountTogglerComponent,
     CommentComponent,
     CommentThreadComponent,
-    NavigationComponent
+    NavigationComponent,
+    OptionsListComponent
   ],
   exports: [
     PreviewComponent,
     AmountTogglerComponent,
     CommentComponent,
     CommentThreadComponent,
-    NavigationComponent
+    NavigationComponent,
+    OptionsListComponent
   ]
 })
 export class SharedModule { }

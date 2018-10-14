@@ -11,7 +11,7 @@
     <div class="preview__footer clearfix">
       <div class="preview__comments" (click)="navigateToPost()">
         <svg class="preview__comment-icon" viewBox="0 0 1000 1000">
-          <use xlink:href="src/assets/icons/comments-icon.svg#comments"></use>
+          <use xlink:href="../../../assets/icons/comments-icon.svg#comments"></use>
         </svg>
         <span class="preview__comment-number">{{post.numComments + ' Comments'}}</span>
       </div>
@@ -22,4 +22,3 @@
     </div>
   </div>
 </div>
-<app-comment-thread *ngFor="let thread of threads" [thread]="thread" [ts]="'Coffeh'"></app-comment-thread>

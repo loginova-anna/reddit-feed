@@ -5,13 +5,15 @@
   border-radius: 2px;
   position: relative;
   padding: 20px;
-  padding-left: 75px;
+  padding-left: 80px;
 }
 
 .preview__score {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 24px;
+  left: 10px;
+  width: 60px;
+  text-align: center;
   color: $cLightFont;
   font-size: $sFontLarge;
 }

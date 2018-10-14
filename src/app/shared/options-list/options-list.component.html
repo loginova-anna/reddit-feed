@@ -1,0 +1,10 @@
+<div class="options-list">
+  <p class="options-list__title">Choose subreddit</p>
+  <div class="options-list__list">
+    <div
+      *ngFor="let option of options"
+      class="options-list__option"
+      (click)="setOption(option)"
+    >{{option.title}}</div>
+  </div>
+</div>

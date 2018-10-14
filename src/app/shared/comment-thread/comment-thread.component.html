@@ -5,10 +5,10 @@
     (click)="toggleThread()"
   >
     <svg  class="thread__toggler-btn" *ngIf="!threadOn" viewBox="0 0 490 490">
-      <use xlink:href="src/assets/icons/show-icon.svg#show"></use>
+      <use xlink:href="../../../assets/icons/show-icon.svg#show"></use>
     </svg>
     <svg *ngIf="threadOn" class="thread__toggler-btn" viewBox="0 0 612 612">
-      <use xlink:href="src/assets/icons/hide-icon.svg#hide"></use>
+      <use xlink:href="../../../assets/icons/hide-icon.svg#hide"></use>
     </svg>
   </div>
   <div class="thread__placeholder" *ngIf="!threadOn">Show comments</div>

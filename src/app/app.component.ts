@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from './core/api.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,17 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'reddit-feed';
-  // feed: Feed;
-  constructor(private api: ApiService, private router: Router) {}
+  title = '';
+  subReddits;
+  constructor(private api: ApiService, private router: Router) {
+    this.api.subRedditName.subscribe(res => this.title = res);
+  }
 
   ngOnInit() {
-    this.api.getRedditList().subscribe(res => console.log('list', res));
-    // this.api.getSubreddit('', 0).subscribe(res => {console.log(res); this.feed = res; });
+    this.api.getRedditList().subscribe(res => {
+      this.subReddits = res;
+    });
   }
 
   navigateToMain() {
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/feed'], {queryParams: {name: this.title}});
+  }
+
+  goToSubreddit(sr) {
+    this.router.navigate(['/feed'], {queryParams: {name: sr}});
   }
 
 }

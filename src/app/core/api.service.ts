@@ -1,32 +1,42 @@
+import { SubReddit } from './../shared/classes/subreddit.class';
 import { Comment } from './../shared/classes/comment.class';
 import { Post } from './../shared/classes/post.class';
 import { Feed } from './../shared/classes/feed.class';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const baseUrl = 'https://www.reddit.com';
 const redditListUrl = baseUrl + '/reddits.json';
-const subRedditUrl = baseUrl + '/r/';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) {}
+  private subredditNameSubj = new Subject<string>();
+  subRedditName: Observable<string>;
 
-  getRedditList(): Observable<any> {
-    return this.http.get(redditListUrl);
+  constructor(private http: HttpClient) {
+    this.subRedditName = this.subredditNameSubj.asObservable();
+  }
+
+  getRedditList(): Observable<SubReddit[]> {
+    return this.http.get<{data: any}>(redditListUrl)
+    .pipe(
+      map(res => {
+        return res.data.children.map(el => this.buildSubReddit(el));
+      })
+    );
   }
 
   getSubreddit(name: string, limit: number, before: string, after: string): Observable<Feed> {
-    name = name || 'sweden';
+    name = name || '/r/sweden/';
+    this.subredditNameSubj.next(name);
+    name = name.slice(0, -1);
     const params = (limit ? `limit=${limit}&` : '') + (before ? `before=${before}&` : '') + (after ? `after=${after}` : '');
-    const url = subRedditUrl + name + '.json' + (params ? '?' + params : '');
-    console.log(url);
+    const url = baseUrl + name + '.json' + (params ? '?' + params : '');
     return this.http
       .get(url)
       .pipe(
@@ -47,6 +57,15 @@ export class ApiService {
       );
   }
 
+  private buildSubReddit(raw): SubReddit {
+    return new SubReddit(
+      raw.data.id,
+      raw.data.url,
+      raw.data.title,
+      raw.data.icon_img
+    );
+  }
+
   private buildComments(data): Comment[] {
     if (!data || !data.data.children.length) {
       return [];
@@ -59,7 +78,7 @@ export class ApiService {
       if (!el.data.author) { return; }
       newComment = new Comment(
         el.data.id,
-        el.data.body,
+        el.data.body.replace(/\n/g, '<br>'),
         el.data.author,
         this.buildDateFromSecs(+el.data.created),
         +el.data.score,
@@ -97,7 +116,7 @@ export class ApiService {
       raw.data.num_comments,
       raw.data.permalink,
       raw.data.title,
-      raw.data.selftext,
+      raw.data.selftext.replace(/\n/g, '<br>'),
       raw.data.score,
       preview,
       comms ? this.buildComments(comms) : null

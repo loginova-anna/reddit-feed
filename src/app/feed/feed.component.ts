@@ -13,9 +13,12 @@ export class FeedComponent implements OnInit {
   before = null;
   after = null;
   limit = 10;
-  name = '';
+  name = '/r/sweden/';
   constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(res => {
+      if (!res.limit || !res.name) {
+        this.router.navigate(['/feed'], {queryParams: {name: res.name || this.name, limit: res.limit || this.limit}});
+      }
       this.before = res.before || this.before;
       this.after = res.after || this.after;
       this.limit = res.limit || this.limit;
@@ -29,7 +32,15 @@ export class FeedComponent implements OnInit {
 
   getFeed() {
     this.api.getSubreddit(this.name, this.limit, this.before, this.after)
-      .subscribe(res => this.feed = res);
+      .subscribe(res => {
+        if (res.posts.length < this.limit) {
+          this.before = null;
+          this.after = null;
+          this.router.navigate(['/feed'], {queryParams: {limit: this.limit}});
+        } else {
+          this.feed = res;
+        }
+      });
   }
 
   navigateToPage(type) {

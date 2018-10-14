@@ -1,0 +1,23 @@
+@import 'src/variables';
+
+.options-list {
+  background: $cWhite;
+  border-radius: 2px;
+  padding: 20px;
+}
+
+.options-list__title {
+  color: $cMedium;
+  font-size: $sFontLarge;
+  padding-bottom: 20px;
+}
+
+.options-list__option {
+  cursor: pointer;
+  font-size: $sFontSmall;
+  color: $cLightFont;
+  padding-bottom: 7px;
+  &:hover {
+    color: $cAccent;
+  }
+}
